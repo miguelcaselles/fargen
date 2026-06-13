@@ -38,6 +38,6 @@ export const PEOPLE = [
 export const DISHES = [
   { id: 'd1', name: 'Croquetas de jamón', category: 'Entrante', emoji: '🥟', scope: 'all' },
   { id: 'd2', name: 'Fritos de pixín', category: 'Entrante', emoji: '🐟', scope: 'all' },
-  { id: 'd3', name: 'Cachopo', category: 'Principal', emoji: '🥩', scope: ['p2', 'p3', 'p4', 'p5'] },
+  { id: 'd3', name: 'Cachopo', category: 'Principal', emoji: '🥩', scope: ['p1', 'p2', 'p3', 'p4', 'p5'] },
   { id: 'd4', name: 'Chuletillas', category: 'Principal', emoji: '🍖', scope: ['p1', 'p2', 'p3'] },
 ]
