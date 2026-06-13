@@ -171,9 +171,9 @@ function Welcome({ name, setName, onStart }) {
   return (
     <div className="welcome fadein">
       <div>
-        <div className="hero-emoji">🧀</div>
+        <div className="brand-logo"><img src="/logo.jpeg" alt="Las Tartas de Julita" /></div>
         <h1>Votación de<br />Tartas de Queso</h1>
-        <p className="sub muted">Cata a ciegas entre 4 tartas legendarias. Pon tu nombre y empieza a puntuar.</p>
+        <p className="sub muted">Cata a ciegas entre 4 tartas de <b>Las Tartas de Julita</b>. Pon tu nombre y empieza a puntuar.</p>
       </div>
 
       <div className="cake-chips">
@@ -460,6 +460,7 @@ function Results({ votes, onReset, onBack }) {
 
   return (
     <div className="fadein">
+      <div className="brand-logo brand-logo-sm"><img src="/logo.jpeg" alt="Las Tartas de Julita" /></div>
       <h1 className="results-title">🏆 Resultados</h1>
       <p className="results-sub muted">
         {votes.length} {votes.length === 1 ? 'voto' : 'votos'} · nota ponderada<br />
