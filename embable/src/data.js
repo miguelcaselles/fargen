@@ -9,7 +9,7 @@ export const RESTAURANT = {
 }
 
 // Mientras sea true, se muestra un aviso de "datos de ejemplo".
-export const PLACEHOLDER = true
+export const PLACEHOLDER = false
 
 // Escala de puntuación
 export const MIN_SCORE = 1
@@ -36,11 +36,8 @@ export const PEOPLE = [
 //   scope: 'all'          -> lo votan TODOS (entrantes / para compartir)
 //   scope: ['p1','p2']    -> lo votan SOLO esas personas (lo que pidieron)
 export const DISHES = [
-  { id: 'd1', name: 'Tabla de quesos asturianos', category: 'Entrante', emoji: '🧀', scope: 'all' },
-  { id: 'd2', name: 'Croquetas de cabrales', category: 'Entrante', emoji: '🥟', scope: 'all' },
-  { id: 'd3', name: 'Chorizo a la sidra', category: 'Entrante', emoji: '🌭', scope: 'all' },
-  { id: 'd4', name: 'Fabada asturiana', category: 'Principal', emoji: '🫘', scope: ['p1', 'p2'] },
-  { id: 'd5', name: 'Cachopo', category: 'Principal', emoji: '🥩', scope: ['p3'] },
-  { id: 'd6', name: 'Pixín a la plancha', category: 'Principal', emoji: '🐟', scope: ['p4'] },
-  { id: 'd7', name: 'Arroz con leche', category: 'Postre', emoji: '🍮', scope: 'all' },
+  { id: 'd1', name: 'Croquetas de jamón', category: 'Entrante', emoji: '🥟', scope: 'all' },
+  { id: 'd2', name: 'Fritos de pixín', category: 'Entrante', emoji: '🐟', scope: 'all' },
+  { id: 'd3', name: 'Cachopo', category: 'Principal', emoji: '🥩', scope: ['p2', 'p3', 'p4', 'p5'] },
+  { id: 'd4', name: 'Chuletillas', category: 'Principal', emoji: '🍖', scope: ['p1'] },
 ]
