@@ -10,10 +10,11 @@ export const CAKES = [
   { id: 'choco-donettes', name: 'Chocolate Blanco y Donettes', emoji: '🍩', color: '#dceaf6' },
 ]
 
+// weight = peso en la nota final (suman 100)
 export const CRITERIA = [
-  { id: 'presentacion', label: 'Presentación', emoji: '✨' },
-  { id: 'textura', label: 'Textura', emoji: '🥄' },
-  { id: 'sabor', label: 'Sabor', emoji: '😋' },
+  { id: 'sabor', label: 'Sabor', emoji: '😋', weight: 50 },
+  { id: 'textura', label: 'Textura', emoji: '🥄', weight: 30 },
+  { id: 'presentacion', label: 'Presentación', emoji: '✨', weight: 20 },
 ]
 
 export const MIN_SCORE = 1

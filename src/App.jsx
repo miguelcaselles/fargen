@@ -198,7 +198,10 @@ function Welcome({ name, setName, onStart }) {
         </button>
       </div>
 
-      <p className="footer-note">Cada criterio se puntúa del {MIN_SCORE} al {MAX_SCORE}. Votan {TOTAL_VOTERS} personas.</p>
+      <p className="footer-note">
+        Puntúa del {MIN_SCORE} al {MAX_SCORE}. Nota final ponderada: 😋 Sabor 50% · 🥄 Textura 30% · ✨ Presentación 20%.<br />
+        Votan {TOTAL_VOTERS} personas.
+      </p>
     </div>
   )
 }
@@ -275,7 +278,7 @@ function Voting({ name, onSubmit, onCancel }) {
             return (
               <div className="criterion" key={cr.id}>
                 <div className="criterion-top">
-                  <span className="criterion-label">{cr.emoji} {cr.label}</span>
+                  <span className="criterion-label">{cr.emoji} {cr.label} <span className="weight">{cr.weight}%</span></span>
                   <span
                     className={'criterion-value ' + (typeof v === 'number' ? '' : 'empty')}
                     style={typeof v === 'number' ? { background: scoreColor(v) } : undefined}
@@ -326,10 +329,14 @@ function Scale({ value, onChange }) {
   )
 }
 
+// nota ponderada (Sabor 50 · Textura 30 · Presentación 20)
 function cakeAverage(cakeScores) {
-  const vals = CRITERIA.map((cr) => cakeScores?.[cr.id]).filter((x) => typeof x === 'number')
-  if (!vals.length) return 0
-  return vals.reduce((a, b) => a + b, 0) / vals.length
+  let ws = 0, wt = 0
+  CRITERIA.forEach((cr) => {
+    const v = cakeScores?.[cr.id]
+    if (typeof v === 'number') { ws += v * cr.weight; wt += cr.weight }
+  })
+  return wt ? ws / wt : 0
 }
 
 function Review({ scores, sending, error, onSend, onBack }) {
@@ -422,8 +429,8 @@ function Waiting({ votes, count, finished, loaded, onResults, onReset }) {
 function computeStats(votes) {
   return CAKES.map((cake) => {
     const perCriterion = {}
-    let overallSum = 0
-    let overallCount = 0
+    let weightedSum = 0
+    let weightTotal = 0
     CRITERIA.forEach((cr) => {
       let sum = 0, n = 0
       votes.forEach((v) => {
@@ -432,10 +439,10 @@ function computeStats(votes) {
       })
       const avg = n ? sum / n : 0
       perCriterion[cr.id] = avg
-      overallSum += sum
-      overallCount += n
+      if (n) { weightedSum += avg * cr.weight; weightTotal += cr.weight }
     })
-    const overall = overallCount ? overallSum / overallCount : 0
+    // nota final ponderada (Sabor 50 · Textura 30 · Presentación 20)
+    const overall = weightTotal ? weightedSum / weightTotal : 0
     return { cake, perCriterion, overall }
   }).sort((a, b) => b.overall - a.overall)
 }
@@ -454,7 +461,10 @@ function Results({ votes, onReset, onBack }) {
   return (
     <div className="fadein">
       <h1 className="results-title">🏆 Resultados</h1>
-      <p className="results-sub muted">{votes.length} {votes.length === 1 ? 'voto' : 'votos'} · media del {MIN_SCORE} al {MAX_SCORE}</p>
+      <p className="results-sub muted">
+        {votes.length} {votes.length === 1 ? 'voto' : 'votos'} · nota ponderada<br />
+        <span style={{ fontSize: 12 }}>😋 Sabor 50% · 🥄 Textura 30% · ✨ Presentación 20%</span>
+      </p>
 
       <div className="tabs">
         <button className={'tab ' + (tab === 'global' ? 'active' : '')} onClick={() => setTab('global')}>🌍 Global</button>
@@ -518,7 +528,7 @@ function GlobalResults({ votes }) {
           {CRITERIA.map((cr) => (
             <div className="bar-row" key={cr.id}>
               <div className="bar-top">
-                <span>{cr.emoji} {cr.label}</span>
+                <span>{cr.emoji} {cr.label} <span className="weight">{cr.weight}%</span></span>
                 <span className="v">{r.perCriterion[cr.id].toFixed(1)}</span>
               </div>
               <div className="bar-track">
