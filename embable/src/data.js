@@ -25,10 +25,11 @@ export const CRITERIA = [
 
 // Comensales (cada uno entra y elige su nombre)
 export const PEOPLE = [
-  { id: 'p1', name: 'Comensal 1' },
-  { id: 'p2', name: 'Comensal 2' },
-  { id: 'p3', name: 'Comensal 3' },
-  { id: 'p4', name: 'Comensal 4' },
+  { id: 'p1', name: 'Carlos' },
+  { id: 'p2', name: 'Carmen' },
+  { id: 'p3', name: 'Carla' },
+  { id: 'p4', name: 'Sergio' },
+  { id: 'p5', name: 'Miguel' },
 ]
 
 // Platos.
