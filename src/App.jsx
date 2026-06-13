@@ -518,6 +518,9 @@ function GlobalResults({ votes }) {
         </div>
       ))}
 
+      <div className="section-title">📈 Comparativa por criterio</div>
+      <LineChart ranked={ranked} />
+
       <div className="section-title">Estadísticas por tarta</div>
       {ranked.map((r) => (
         <div className="stat-card" key={r.cake.id}>
@@ -608,6 +611,52 @@ function PerPersonResults({ votes }) {
           </div>
         )
       })}
+    </div>
+  )
+}
+
+/* Line chart (connected points): one line per cake across the criteria */
+function LineChart({ ranked }) {
+  const W = 340, H = 224
+  const pL = 30, pR = 330, pT = 14, pB = 184
+  const n = CRITERIA.length
+  const xFor = (i) => (n <= 1 ? (pL + pR) / 2 : pL + (i * (pR - pL)) / (n - 1))
+  const yFor = (v) => pB - (v / MAX_SCORE) * (pB - pT)
+  const yTicks = [0, 2, 4, 6, 8, 10]
+  const anchor = (i) => (i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle')
+
+  return (
+    <div className="chart-card">
+      <svg viewBox={`0 0 ${W} ${H}`} className="linechart" role="img" aria-label="Comparativa de tartas por criterio">
+        {yTicks.map((t) => (
+          <g key={t}>
+            <line x1={pL} y1={yFor(t)} x2={pR} y2={yFor(t)} className="grid" />
+            <text x={pL - 7} y={yFor(t) + 3} className="ytick">{t}</text>
+          </g>
+        ))}
+        {CRITERIA.map((cr, i) => (
+          <text key={cr.id} x={xFor(i)} y={pB + 20} className="xtick" textAnchor={anchor(i)}>{cr.label}</text>
+        ))}
+        {ranked.map((r) => {
+          const pts = CRITERIA.map((cr, i) => `${xFor(i)},${yFor(r.perCriterion[cr.id])}`).join(' ')
+          return (
+            <polyline key={r.cake.id} className="cakeline" points={pts} fill="none"
+              stroke={r.cake.line} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+          )
+        })}
+        {ranked.map((r) => CRITERIA.map((cr, i) => (
+          <circle key={r.cake.id + cr.id} cx={xFor(i)} cy={yFor(r.perCriterion[cr.id])}
+            r="3.8" fill={r.cake.line} stroke="#fff" strokeWidth="1.6" />
+        )))}
+      </svg>
+      <div className="legend">
+        {ranked.map((r) => (
+          <span className="legend-item" key={r.cake.id}>
+            <span className="legend-dot" style={{ background: r.cake.line }} />
+            {r.cake.emoji} {r.cake.name}
+          </span>
+        ))}
+      </div>
     </div>
   )
 }

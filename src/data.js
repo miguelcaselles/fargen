@@ -4,10 +4,10 @@
 export const TOTAL_VOTERS = 5
 
 export const CAKES = [
-  { id: 'dubai-lotus', name: 'Dubai Lotus', emoji: '🐫', color: '#e9d8c3' },
-  { id: 'kinder', name: 'Kinder', emoji: '🍫', color: '#f6dcc8' },
-  { id: 'kitkat', name: 'KitKat', emoji: '🍫', color: '#e7d6f0' },
-  { id: 'choco-donettes', name: 'Chocolate Blanco y Donettes', emoji: '🍩', color: '#dceaf6' },
+  { id: 'dubai-lotus', name: 'Dubai Lotus', emoji: '🐫', color: '#e9d8c3', line: '#f2a93b' },
+  { id: 'kinder', name: 'Kinder', emoji: '🍫', color: '#f6dcc8', line: '#e8638c' },
+  { id: 'kitkat', name: 'KitKat', emoji: '🍫', color: '#e7d6f0', line: '#9b6dd6' },
+  { id: 'choco-donettes', name: 'Chocolate Blanco y Donettes', emoji: '🍩', color: '#dceaf6', line: '#4ea9d6' },
 ]
 
 // weight = peso en la nota final (suman 100)
