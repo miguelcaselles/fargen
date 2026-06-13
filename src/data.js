@@ -14,7 +14,6 @@ export const CRITERIA = [
   { id: 'presentacion', label: 'Presentación', emoji: '✨' },
   { id: 'textura', label: 'Textura', emoji: '🥄' },
   { id: 'sabor', label: 'Sabor', emoji: '😋' },
-  { id: 'originalidad', label: 'Originalidad', emoji: '💡' },
 ]
 
 export const MIN_SCORE = 1
