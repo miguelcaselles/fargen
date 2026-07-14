@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Monitorización telemática y adherencia a hipolipemiantes inyectables",
+    "audio": "silence.mp3",
+    "timings": "adherencia-hipolipemiantes.timings.json"
+  },
+  "scenes": [
+    {
+      "id": "1-gancho",
+      "component": "TitleCard",
+      "durationInFrames": 240,
+      "props": {
+        "kicker": "Adherencia terapéutica",
+        "title": "Un tratamiento solo funciona si se pone",
+        "subtitle": "Los hipolipemiantes inyectables ayudan a bajar el colesterol, pero solo si el paciente mantiene el ritmo de administración."
+      }
+    },
+    {
+      "id": "2-problema",
+      "component": "BulletReveal",
+      "durationInFrames": 240,
+      "props": {
+        "kicker": "El problema",
+        "title": "La adherencia se rompe en casa",
+        "items": [
+          "El paciente se administra la inyección solo, semanas después de la consulta.",
+          "Un olvido o una dosis mal puesta pasan desapercibidos hasta la siguiente analítica.",
+          "Sin datos entre visitas, el equipo no sabe a quién necesita apoyar."
+        ]
+      }
+    },
+    {
+      "id": "3-como-funciona",
+      "component": "ProcessDiagram",
+      "durationInFrames": 240,
+      "props": {
+        "kicker": "Cómo funciona",
+        "title": "Monitorización telemática",
+        "steps": [
+          {
+            "title": "Registro de la dosis",
+            "detail": "El dispositivo o la app anota cada administración."
+          },
+          {
+            "title": "Envío automático",
+            "detail": "El dato llega al sistema del hospital sin trámites."
+          },
+          {
+            "title": "Alerta temprana",
+            "detail": "Si se salta una dosis, el equipo lo ve al momento."
+          },
+          {
+            "title": "Contacto proactivo",
+            "detail": "Farmacia acompaña antes de que falle la adherencia."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4-dato-clave",
+      "component": "KeyStat",
+      "durationInFrames": 240,
+      "props": {
+        "kicker": "El dato",
+        "value": "XX",
+        "suffix": "%",
+        "label": "de las dosis omitidas podrían detectarse a tiempo con seguimiento telemático.",
+        "footnote": "PLACEHOLDER · dato pendiente de fuente — ver README"
+      }
+    },
+    {
+      "id": "5-reflexion",
+      "component": "QuoteCard",
+      "durationInFrames": 210,
+      "props": {
+        "quote": "¿Y si el mejor momento para ayudar a un paciente no es la próxima consulta, sino la próxima dosis?",
+        "attribution": "Miguel Caselles · Farmacia Hospitalaria"
+      }
+    },
+    {
+      "id": "6-cierre",
+      "component": "EndCard",
+      "durationInFrames": 180,
+      "props": {
+        "name": "Miguel Caselles",
+        "handle": "@tu_usuario",
+        "message": "Menos consultas perdidas. Más tratamientos que llegan a hacer efecto."
+      }
+    }
+  ]
+}

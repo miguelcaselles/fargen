@@ -1,0 +1,378 @@
+{
+  "lines": [
+    {
+      "words": [
+        {
+          "text": "Un",
+          "start": 0.6,
+          "end": 1.2
+        },
+        {
+          "text": "tratamiento",
+          "start": 1.2,
+          "end": 1.8
+        },
+        {
+          "text": "solo",
+          "start": 1.8,
+          "end": 2.4
+        },
+        {
+          "text": "funciona",
+          "start": 2.4,
+          "end": 3
+        },
+        {
+          "text": "si",
+          "start": 3,
+          "end": 3.6
+        },
+        {
+          "text": "el",
+          "start": 3.6,
+          "end": 4.2
+        },
+        {
+          "text": "paciente",
+          "start": 4.2,
+          "end": 4.8
+        },
+        {
+          "text": "lo",
+          "start": 4.8,
+          "end": 5.4
+        },
+        {
+          "text": "mantiene",
+          "start": 5.4,
+          "end": 6
+        },
+        {
+          "text": "en",
+          "start": 6,
+          "end": 6.6
+        },
+        {
+          "text": "casa.",
+          "start": 6.6,
+          "end": 7.2
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "text": "El",
+          "start": 8.6,
+          "end": 9.086
+        },
+        {
+          "text": "problema",
+          "start": 9.086,
+          "end": 9.571
+        },
+        {
+          "text": "es",
+          "start": 9.571,
+          "end": 10.057
+        },
+        {
+          "text": "que",
+          "start": 10.057,
+          "end": 10.543
+        },
+        {
+          "text": "la",
+          "start": 10.543,
+          "end": 11.029
+        },
+        {
+          "text": "adherencia",
+          "start": 11.029,
+          "end": 11.514
+        },
+        {
+          "text": "se",
+          "start": 11.514,
+          "end": 12
+        },
+        {
+          "text": "rompe",
+          "start": 12,
+          "end": 12.486
+        },
+        {
+          "text": "entre",
+          "start": 12.486,
+          "end": 12.971
+        },
+        {
+          "text": "una",
+          "start": 12.971,
+          "end": 13.457
+        },
+        {
+          "text": "consulta",
+          "start": 13.457,
+          "end": 13.943
+        },
+        {
+          "text": "y",
+          "start": 13.943,
+          "end": 14.429
+        },
+        {
+          "text": "la",
+          "start": 14.429,
+          "end": 14.914
+        },
+        {
+          "text": "siguiente.",
+          "start": 14.914,
+          "end": 15.4
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "text": "La",
+          "start": 16.6,
+          "end": 17.167
+        },
+        {
+          "text": "monitorización",
+          "start": 17.167,
+          "end": 17.733
+        },
+        {
+          "text": "telemática",
+          "start": 17.733,
+          "end": 18.3
+        },
+        {
+          "text": "registra",
+          "start": 18.3,
+          "end": 18.867
+        },
+        {
+          "text": "cada",
+          "start": 18.867,
+          "end": 19.433
+        },
+        {
+          "text": "dosis",
+          "start": 19.433,
+          "end": 20
+        },
+        {
+          "text": "y",
+          "start": 20,
+          "end": 20.567
+        },
+        {
+          "text": "avisa",
+          "start": 20.567,
+          "end": 21.133
+        },
+        {
+          "text": "al",
+          "start": 21.133,
+          "end": 21.7
+        },
+        {
+          "text": "equipo",
+          "start": 21.7,
+          "end": 22.267
+        },
+        {
+          "text": "a",
+          "start": 22.267,
+          "end": 22.833
+        },
+        {
+          "text": "tiempo.",
+          "start": 22.833,
+          "end": 23.4
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "text": "Así,",
+          "start": 24.6,
+          "end": 25.218
+        },
+        {
+          "text": "muchas",
+          "start": 25.218,
+          "end": 25.836
+        },
+        {
+          "text": "dosis",
+          "start": 25.836,
+          "end": 26.455
+        },
+        {
+          "text": "omitidas",
+          "start": 26.455,
+          "end": 27.073
+        },
+        {
+          "text": "podrían",
+          "start": 27.073,
+          "end": 27.691
+        },
+        {
+          "text": "detectarse",
+          "start": 27.691,
+          "end": 28.309
+        },
+        {
+          "text": "antes",
+          "start": 28.309,
+          "end": 28.927
+        },
+        {
+          "text": "de",
+          "start": 28.927,
+          "end": 29.545
+        },
+        {
+          "text": "la",
+          "start": 29.545,
+          "end": 30.164
+        },
+        {
+          "text": "próxima",
+          "start": 30.164,
+          "end": 30.782
+        },
+        {
+          "text": "analítica.",
+          "start": 30.782,
+          "end": 31.4
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "text": "¿Y",
+          "start": 32.6,
+          "end": 32.962
+        },
+        {
+          "text": "si",
+          "start": 32.962,
+          "end": 33.325
+        },
+        {
+          "text": "el",
+          "start": 33.325,
+          "end": 33.688
+        },
+        {
+          "text": "mejor",
+          "start": 33.688,
+          "end": 34.05
+        },
+        {
+          "text": "momento",
+          "start": 34.05,
+          "end": 34.413
+        },
+        {
+          "text": "para",
+          "start": 34.413,
+          "end": 34.775
+        },
+        {
+          "text": "ayudar",
+          "start": 34.775,
+          "end": 35.138
+        },
+        {
+          "text": "no",
+          "start": 35.138,
+          "end": 35.5
+        },
+        {
+          "text": "es",
+          "start": 35.5,
+          "end": 35.862
+        },
+        {
+          "text": "la",
+          "start": 35.862,
+          "end": 36.225
+        },
+        {
+          "text": "próxima",
+          "start": 36.225,
+          "end": 36.587
+        },
+        {
+          "text": "consulta,",
+          "start": 36.587,
+          "end": 36.95
+        },
+        {
+          "text": "sino",
+          "start": 36.95,
+          "end": 37.313
+        },
+        {
+          "text": "la",
+          "start": 37.313,
+          "end": 37.675
+        },
+        {
+          "text": "próxima",
+          "start": 37.675,
+          "end": 38.038
+        },
+        {
+          "text": "dosis?",
+          "start": 38.038,
+          "end": 38.4
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "text": "Piénsalo,",
+          "start": 39.4,
+          "end": 40.233
+        },
+        {
+          "text": "y",
+          "start": 40.233,
+          "end": 41.067
+        },
+        {
+          "text": "cuéntame",
+          "start": 41.067,
+          "end": 41.9
+        },
+        {
+          "text": "qué",
+          "start": 41.9,
+          "end": 42.733
+        },
+        {
+          "text": "harías",
+          "start": 42.733,
+          "end": 43.567
+        },
+        {
+          "text": "tú.",
+          "start": 43.567,
+          "end": 44.4
+        }
+      ]
+    }
+  ]
+}

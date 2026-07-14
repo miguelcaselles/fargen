@@ -1,0 +1,17 @@
+# dependencias
+node_modules/
+
+# salidas de render
+out/
+
+# remotion
+.remotion/
+
+# sistema
+.DS_Store
+*.log
+npm-debug.log*
+
+# entorno
+.env
+.env.local
