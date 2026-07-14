@@ -64,6 +64,27 @@ export const color = {
   surface: '#FBF9F3',
 } as const;
 
+/**
+ * Paleta de ILUSTRACIÓN para los personajes animados. Extiende la paleta
+ * japandi con tonos de piel y ropa cálidos y apagados, coherentes con el resto.
+ */
+export const illustration = {
+  /** Piel cálida neutra. */
+  skin: '#E7C4A0',
+  /** Sombra suave de la piel. */
+  skinShade: '#D9AE86',
+  /** Cabello / rasgos: tinta. */
+  hair: '#29251F',
+  /** Bata / camisa del farmacéutico (crema elevado). */
+  coat: '#FBF9F3',
+  /** Prenda principal del paciente (salvia). */
+  garment: '#93A585',
+  /** Prenda alternativa / pantalón (tinta suave). */
+  garmentAlt: '#6B6459',
+  /** Acento textil (terracota). */
+  garmentAccent: '#C06A4B',
+} as const;
+
 // ---------------------------------------------------------------------------
 // TIPOGRAFÍA
 // Titulares en serif elegante (Fraunces). Cuerpo en sans geométrica (Jost).

@@ -20,7 +20,29 @@ idéntica.
   <img src="preview/06-endcard.png" width="19%" />
 </p>
 
-Vídeo de ejemplo renderizado: [`renders/adherencia-hipolipemiantes.mp4`](renders/adherencia-hipolipemiantes.mp4).
+## Dos modos de vídeo
+
+Este proyecto incluye **dos maneras** de hacer el vídeo, con la misma estética
+y los mismos tokens:
+
+| Modo | Composición | Qué es | Cómo se edita |
+|---|---|---|---|
+| **Ilustrado animado** ⭐ | `VideoAnimado` | Personajes 2D que se mueven (respiran, parpadean, se inyectan, gesticulan) y elementos animados. Es "un vídeo de verdad", no tarjetas de texto. | Se componen en código (`src/anim-video/`) reutilizando el personaje `Person`. |
+| **Tipográfico** | `Video` | Motion graphics de texto y elementos: tarjetas grandes, cifras, listas, gráficas. | Se monta desde un **guion JSON** (`src/scripts/`). Ideal si solo quieres texto. |
+
+Vídeos de ejemplo renderizados:
+- Ilustrado animado → [`renders/adherencia-animado.mp4`](renders/adherencia-animado.mp4)
+- Tipográfico → [`renders/adherencia-hipolipemiantes.mp4`](renders/adherencia-hipolipemiantes.mp4)
+
+<p align="center">
+  <img src="preview/anim-01-gancho.png" width="19%" />
+  <img src="preview/anim-02-problema.png" width="19%" />
+  <img src="preview/anim-03-comofunciona.png" width="19%" />
+  <img src="preview/anim-04-dato.png" width="19%" />
+  <img src="preview/anim-05-cierre.png" width="19%" />
+</p>
+
+---
 
 ---
 
@@ -106,6 +128,36 @@ error explícito** en Studio y en el render (ver `validateScript` en
 > en la [lista de datos pendientes](#-datos-placeholder-pendientes-de-rellenar-por-miguel).
 > `KeyStat` acepta `value` como **texto** (se muestra tal cual, sin contar) o
 > como **número** (cuenta hacia arriba). Usa texto para los placeholders.
+
+---
+
+## Editar el vídeo ilustrado animado
+
+El vídeo con personajes vive en `src/anim-video/` y reutiliza un personaje
+posable en `src/characters/Person.tsx`.
+
+- **`characters/Person.tsx`** — el personaje. Se posa llevando cada mano a un
+  punto (`pose.leftHand` / `pose.rightHand`); el codo se calcula solo. Acepta
+  `expression` (`neutral` · `smile` · `happy` · `worried` · `think`), `hair`,
+  `glasses`, `faceLeft` y objetos en la mano (`pose.hold`, p. ej. el inyector).
+  Respira y parpadea a partir de su `frame`.
+- **`anim-video/parts.tsx`** — piezas reutilizables (teléfono, línea y puntos de
+  datos, calendario de dosis, bocadillos, check, cruz de hospital, rótulos).
+- **`anim-video/scenes.tsx`** — las 5 escenas (Gancho · Problema · Cómo funciona
+  · Dato · Cierre). Cada una posiciona personajes y piezas y anima con
+  `spring`/`interpolate`.
+- **`anim-video/AnimatedVideo.tsx`** — secuencia las escenas con fundidos, añade
+  la locución y los subtítulos. Cambia aquí el orden/duración de escenas.
+
+Para un tema nuevo con este estilo, se editan las escenas (texto y poses) en
+`scenes.tsx`. Es más manual que el JSON del modo tipográfico: las poses de
+personaje no se prestan a un simple archivo de datos. Puedes previsualizar el
+personaje aislado en la composición **`PersonPreview`** de Studio.
+
+> Nota de estilo: los brazos son trazos de grosor constante, así que los
+> **gestos cortos** (saludar, señalar cerca del cuerpo, inyectarse) quedan
+> naturales; evita estirar una mano muy lejos del hombro o el brazo parecerá un
+> palo.
 
 ---
 
@@ -253,11 +305,14 @@ ajustas, pon `showSafeGuides: true` en los `defaultProps` de la composición
 ## Renderizar a MP4
 
 ```bash
-npm run render
-# equivale a:  npx remotion render Video out/video.mp4
+# Vídeo ilustrado animado (personajes):
+npx remotion render VideoAnimado out/video-animado.mp4
+
+# Vídeo tipográfico (desde el JSON):
+npm run render        # equivale a: npx remotion render Video out/video.mp4
 ```
 
-Salida: `out/video.mp4` (H.264). La configuración de render está en
+Salida: MP4 H.264. La configuración de render está en
 [`remotion.config.ts`](remotion.config.ts) (códec H.264, formato de imagen,
 sobrescritura).
 
@@ -307,13 +362,21 @@ src/
 │  ├─ registry.tsx     ← mapa component→React
 │  ├─ atoms.tsx        ← Kicker, Rule, Footnote
 │  └─ anim.ts          ← utilidades de animación compartidas
+├─ characters/
+│  └─ Person.tsx       ← personaje 2D posable (vídeo animado)
+├─ anim-video/         ← VÍDEO ILUSTRADO ANIMADO
+│  ├─ scenes.tsx       ← las 5 escenas con personajes
+│  ├─ parts.tsx        ← piezas (teléfono, datos, calendario, bocadillos…)
+│  ├─ palette.ts       ← paletas de personaje (desde tokens)
+│  └─ AnimatedVideo.tsx← secuencia escenas + audio + subtítulos
 ├─ scripts/
-│  ├─ adherencia-hipolipemiantes.json          ← el GUION del ejemplo
-│  └─ adherencia-hipolipemiantes.timings.json  ← subtítulos del ejemplo
-├─ Video.tsx           ← el motor: lee el guion y monta el vídeo
+│  ├─ adherencia-hipolipemiantes.json          ← GUION del vídeo tipográfico
+│  ├─ adherencia-hipolipemiantes.timings.json  ← subtítulos tipográfico
+│  └─ adherencia-animado.timings.json          ← subtítulos vídeo animado
+├─ Video.tsx           ← motor del modo tipográfico (lee el guion)
 ├─ Playground.tsx      ← previsualización de AnimatedChart
-├─ Root.tsx            ← registra las composiciones
-├─ load.ts             ← carga + valida el guion activo
+├─ Root.tsx            ← registra las composiciones (Video, VideoAnimado, …)
+├─ load.ts             ← carga + valida el guion tipográfico
 └─ index.ts            ← entry point de Remotion
 public/audio/silence.mp3   ← placeholder de locución
 renders/                   ← vídeo de ejemplo entregado (.mp4)

@@ -9,6 +9,9 @@ import './theme/fonts'; // carga Fraunces + Jost
 import { canvas } from './theme/tokens';
 import { Video } from './Video';
 import { Playground } from './Playground';
+import { HomeInjectionScene } from './scenes/HomeInjectionScene';
+import { PersonPreview } from './scenes/PersonPreview';
+import { AnimatedVideo, ANIM_TOTAL } from './anim-video/AnimatedVideo';
 import { durationInFrames, script, track } from './load';
 
 export const RemotionRoot: React.FC = () => {
@@ -52,6 +55,36 @@ export const RemotionRoot: React.FC = () => {
             footnote: 'Datos ilustrativos · demo de componente',
           },
         }}
+      />
+
+      {/* PRUEBA de dirección: escena ilustrada con personaje animado. */}
+      <Composition
+        id="EscenaAnimada"
+        component={HomeInjectionScene}
+        durationInFrames={240}
+        fps={canvas.fps}
+        width={canvas.width}
+        height={canvas.height}
+      />
+
+      {/* Banco de pruebas del personaje refinado. */}
+      <Composition
+        id="PersonPreview"
+        component={PersonPreview}
+        durationInFrames={120}
+        fps={canvas.fps}
+        width={canvas.width}
+        height={canvas.height}
+      />
+
+      {/* VÍDEO COMPLETO con personajes ilustrados animados. */}
+      <Composition
+        id="VideoAnimado"
+        component={AnimatedVideo}
+        durationInFrames={ANIM_TOTAL}
+        fps={canvas.fps}
+        width={canvas.width}
+        height={canvas.height}
       />
     </>
   );
